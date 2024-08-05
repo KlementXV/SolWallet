@@ -19,9 +19,9 @@ FROM scratch
 
 COPY --from=builder /mnt/rootfs/ /
 RUN mkdir /soluser /wallets && \
-    groupadd -r soluser && \
-    useradd -g soluser -d /soluser soluser && \
-    chown soluser:soluser /soluser /wallets
+    groupadd -r -g 1000 soluser && \
+    useradd -u 1000 -g soluser -d /soluser soluser && \
+    chown soluser: /soluser /wallets
 COPY --from=builder --chown=soluser:soluser --chmod=500 /root/.local/share/solana/install/active_release/bin/solana /usr/local/bin/solana
 COPY --from=builder  --chown=soluser:soluser --chmod=500 /root/.local/share/solana/install/active_release/bin/solana-keygen /usr/local/bin/solana-keygen
 COPY --chown=soluser:soluser --chmod=500 entrypoint.sh /usr/local/bin/entrypoint.sh
