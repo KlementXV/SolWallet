@@ -66,3 +66,5 @@ jobs:
           platforms: linux/amd64
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          build-args: |
+            SOLANA_VERSION=${{ needs.version.outputs.version }}

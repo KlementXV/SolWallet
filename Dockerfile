@@ -13,7 +13,7 @@ RUN mkdir -p /mnt/rootfs && \
     systemd-libs && \
     dnf clean all && \
     rm -rf /var/cache/dnf && \
-    curl -sSfL https://release.solana.com/v1.18.20/install | bash
+    curl -sSfL https://release.solana.com/$SOLANA_VERSION/install | bash
 
 FROM scratch
 
