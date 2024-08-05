@@ -36,8 +36,6 @@ generate_wallet() {
 
     pubkey=$(echo "$output" | grep -oP 'pubkey: \K[^\n]+')
 
-    seed_phrase=$(echo "$output" | grep -A1 'Save this seed phrase' | tail -n1)
-
     clear
     echo -e "${PURPLE}============================================================"
     echo -e "                   Solana Wallet Generated                  "
@@ -48,12 +46,9 @@ generate_wallet() {
     echo -e "${GREEN}🔑 Public Key (Address):${NC}"
     echo -e "$pubkey"
     echo
-    echo -e "${GREEN}📝 Seed Phrase (Recovery Phrase):${NC}"
-    echo -e "$seed_phrase"
-    echo
     echo -e "${PURPLE}============================================================"
-    echo -e " 🔐 ${RED}IMPORTANT: Save this seed phrase in a secure location.     ${NC}"
-    echo -e " 🚫 ${RED}Do not share it with anyone.                    ${NC}"
+    echo -e " 🔐 ${RED}IMPORTANT: Save the contents of the JSON file located at ${WALLET_PATH} in a secure location.${NC}"
+    echo -e " 🚫 ${RED}Do not share it with anyone.${NC}"
     echo -e "============================================================${NC}"
     echo
     echo -e "${GREEN}🔓 Public Key QR Code:${NC}"
