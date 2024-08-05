@@ -58,7 +58,7 @@ generate_wallet() {
     echo
     echo -e "${GREEN}🔓 Public Key QR Code:${NC}"
     echo
-    echo "$pubkey" | qrencode -t ANSIUTF8i
+    qrencode -t ANSIUTF8i "$pubkey"
     echo
     echo -e "${PURPLE}============================================================"
     echo -e " 🚀 To start using this address, send some Solana (SOL) to the "
@@ -90,7 +90,7 @@ display_wallets() {
         echo -e "${GREEN}   🔑 Public Key: ${NC}$pubkey"
         echo -e "${GREEN}   💰 Balance: ${NC}$balance"
         echo -e "${GREEN}   🔓 QR Code:${NC}"
-        echo "$pubkey" | qrencode -t ANSIUTF8i
+        qrencode -t ANSIUTF8i "$pubkey"
         echo -e "${PURPLE}------------------------------------------------------------${NC}"
     done
     read -p "Press Enter to return to the menu"
